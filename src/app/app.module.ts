@@ -9,6 +9,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+import { NgParticlesModule } from 'ng-particles';
+
+
 
 
 
@@ -24,7 +27,8 @@ import { AppComponent } from './app.component';
     HttpClientModule,
     NgbModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgParticlesModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
