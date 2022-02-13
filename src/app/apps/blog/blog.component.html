@@ -1,13 +1,17 @@
+
 <div
   class="static-slider-head"
   style="background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(assets/images/landingpage/banner-bg3.jpg)"
 >
+<ng-particles id="tsparticles" [options]="particlesOptions" [style]="myStyle" (particlesLoaded)="particlesLoaded($event)"></ng-particles>
+
+
   <div class="container">
     <!-- Row  -->
     <div class="row justify-content-center">
       <!-- Column -->
       <div class="col-lg-9 col-md-6 align-self-center text-center no-trans">
-        <h1 class="title">Free Angular Blog</h1>
+        <h1 class="title">Kieron's Blog</h1>
         <h5 class="subtitle op-5">
           Want a blog app with ng-bootstrap ? Here is the fully workable blog
           app in which we are giving add post, edit post and delete post.
@@ -17,7 +21,7 @@
           href="https://www.wrappixel.com/free-wrapkit-angular-blog"
           class="btn btn-md m-t-30 btn-success-gradiant font-14"
           target="blank"
-          >Download Free</a
+          >About Kieron</a
         >
       </div>
       <!-- Column -->
@@ -27,6 +31,7 @@
 
 <!-- Row  -->
 <div class="container spacer">
+
   <div class="row justify-content-center">
     <!-- Column -->
     <div class="col-md-8 no-trans text-center">
@@ -71,3 +76,4 @@
     </div>
   </div>
 </div>
+

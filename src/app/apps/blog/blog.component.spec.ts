@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { NgParticlesComponent } from 'ng-particles';
 
 import { BlogComponent } from './blog.component';
 
@@ -8,7 +9,7 @@ describe('BlogComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BlogComponent ]
+      declarations: [ BlogComponent, NgParticlesComponent ]
     })
     .compileComponents();
   });

@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { NgParticlesModule } from 'ng-particles';
+import { BlogComponent } from './apps/blog/blog.component';
 
 
 
