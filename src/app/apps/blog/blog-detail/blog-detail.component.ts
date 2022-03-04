@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ServiceblogService } from '../blog-service.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Blog } from '../blog-type';
+import { HighlightLoader, HighlightAutoResult } from 'ngx-highlightjs';
 
+const themeAndroidStudio: string =
+  'node_modules/highlight.js/styles/androidstudio.css';
 @Component({
   selector: 'app-blog-detail',
   templateUrl: './blog-detail.component.html',
@@ -18,12 +21,15 @@ export class BlogDetailComponent implements OnInit {
     document.getElementById("demo2").innerHTML = "Test 2!";
   }`;
 
-  constructor(activatedRouter: ActivatedRoute, public service: ServiceblogService, public router: Router) {
+  currentTheme: string = themeAndroidStudio;
+
+  constructor(activatedRouter: ActivatedRoute, public service: ServiceblogService, public router: Router, private hljsLoader: HighlightLoader) {
     this.id = activatedRouter.snapshot.paramMap.get('id');
   }
 
   ngOnInit(): void {
     this.blogDetail = this.service.Blogs.filter(x => x.id === +this.id)[0];
+    this.hljsLoader.setTheme(this.currentTheme);
 
   }
 

@@ -22,6 +22,7 @@
     "@angular/router": "~12.2.16",
     "@ng-bootstrap/ng-bootstrap": "^8.0.1",
     "bootstrap": "^4.5.0",
+    "highlightjs-line-numbers.js": "^2.8.0",
     "ng-particles": "^2.40.2",
     "ngx-highlightjs": "^6.1.1",
     "rxjs": "~6.6.0",

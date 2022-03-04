@@ -12,6 +12,11 @@ import { ISourceOptions } from 'tsparticles';
 export class AppComponent {
   title = 'blogApp';
 
+  code = `function myFunction() {
+    document.getElementById("demo1").innerHTML = "Test 1!";
+    document.getElementById("demo2").innerHTML = "Test 2!";
+  }`;
+
   @Output() Navigate = new EventEmitter();
 
   // @ViewChild('sidenav') sidenav: MatSidenav;
