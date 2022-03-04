@@ -13,6 +13,11 @@ export class BlogDetailComponent implements OnInit {
   id: any;
   blogDetail: Blog | null = null;
 
+  code = `function myFunction() {
+    document.getElementById("demo1").innerHTML = "Test 1!";
+    document.getElementById("demo2").innerHTML = "Test 2!";
+  }`;
+
   constructor(activatedRouter: ActivatedRoute, public service: ServiceblogService, public router: Router) {
     this.id = activatedRouter.snapshot.paramMap.get('id');
   }

@@ -13,6 +13,7 @@ import { AppComponent } from './app.component';
 
 import { NgParticlesModule } from 'ng-particles';
 import { BlogComponent } from './apps/blog/blog.component';
+import { BlogDetailComponent } from './apps/blog/blog-detail/blog-detail.component';
 
 
 
@@ -23,6 +24,7 @@ import { BlogComponent } from './apps/blog/blog.component';
 @NgModule({
   declarations: [
     AppComponent,
+    BlogDetailComponent
   ],
   imports: [
     BrowserModule,

@@ -27,7 +27,6 @@ import { NgParticlesModule } from 'ng-particles';
     AppsComponent,
     BlogComponent,
     AboutComponent,
-    BlogDetailComponent,
     RelayOnComponent,
     TopContentComponent,
     FullComponent,
