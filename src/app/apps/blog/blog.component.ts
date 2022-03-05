@@ -25,7 +25,7 @@ export class BlogComponent implements OnInit {
 
   myStyle: object = {};
   width: number = 100;
-	height: number = 10;
+	height: number = 100;
 
   id = "tsparticles";
 
@@ -34,17 +34,22 @@ export class BlogComponent implements OnInit {
 
   /* or the classic JavaScript object */
   particlesOptions: ISourceOptions = {
-      background: {
-          // color: {
-          //     value: "#FFFFFF"
-          // }
+      // background: {
 
-      },
+      //     color: {
+      //         value: "#FFFFFF"
+      //     }
+
+      // },
+
+
+
       // image: {
       //   src: "img/github.svg",
       //   width: 100,
       //   height: 100
       // },
+      fullScreen: false,
       fpsLimit: 20,
       interactivity: {
           detectsOn: "canvas",
@@ -54,7 +59,7 @@ export class BlogComponent implements OnInit {
                   mode: "push"
               },
               onHover: {
-                  enable: true,
+                  enable: false,
                   mode: "repulse"
               },
               resize: true

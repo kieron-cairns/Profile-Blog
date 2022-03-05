@@ -1,11 +1,15 @@
 
 <div
   class="static-slider-head"
-  style="background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(assets/images/landingpage/banner-bg3.jpg)"
+  style="background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(assets/images/landingpage/banner-bg3.jpg); position: sticky;"
+
 >
-<ng-particles id="tsparticles" [options]="particlesOptions" [style]="myStyle" (particlesLoaded)="particlesLoaded($event)"></ng-particles>
-
-
+<div style="position: absolute;
+top:5;
+bottom: 10;
+left: 0;
+right: 0;
+margin: auto;">
   <div class="container">
     <!-- Row  -->
     <div class="row justify-content-center">
@@ -28,6 +32,12 @@
     </div>
   </div>
 </div>
+<ng-particles id="tsparticles" [options]="particlesOptions" [style]="myStyle" (particlesLoaded)="particlesLoaded($event)">
+
+</ng-particles>
+</div>
+
+
 
 <!-- Row  -->
 <div class="container spacer">
@@ -36,10 +46,7 @@
     <!-- Column -->
     <div class="col-md-8 no-trans text-center">
       <h2 class="title">Recent Blogs</h2>
-      <h6 class="subtitle">
-        You can relay on our amazing features list and also our customer
-        services will be great experience for you without doubt and in no-time
-      </h6>
+
     </div>
     <!-- Column -->
   </div>
@@ -76,4 +83,5 @@
     </div>
   </div>
 </div>
+
 
