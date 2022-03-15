@@ -27,7 +27,7 @@
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/assets/scss/style.scss"
             ],
-            "scripts": [],
+            "scripts": ["src/assets/script.js"],
             "vendorChunk": true,
             "extractLicenses": false,
             "buildOptimizer": false,

@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
       <!-- Column -->
       <div class="col-lg-9 col-md-6 align-self-center text-center">
-        <h1 class="title">Kieron's Blog</h1>
+        <h1 class="title">Kieron's Development Blog</h1>
       </div>
       <!-- Column -->
     </div>
@@ -18,7 +18,7 @@
   <div class="row justify-content-center">
     <div class="col-md-8 no-trans">
       <div class="mini-spacer">
-        <!-- <img [src]="blogDetail?.image" alt="wrapkit" class="img-fluid" /> -->
+        <img [src]="blogDetail?.image" alt="wrapkit" class="img-fluid" />
 
         <div
           class="d-flex align-items-center text-uppercase m-t-40 font-13 font-medium"
@@ -37,16 +37,49 @@
         <p class="m-t-30 m-b-30">
           {{ blogDetail?.blogDetail }}
         </p>
+        <br>
+        <p class="m-t-30 m-b-30">
+          {{ blogDetail?.blogDetail2 }}
+        </p>
+        <pre><code [highlight]="code1" [languages]="['typescript']"[lineNumbers]="true"></code></pre>
 
-        <pre><code [highlight]="code" [languages]="['typescript']"[lineNumbers]="true"></code></pre>
+        <p class="m-t-30 m-b-30">
+          {{ blogDetail?.blogDetail3 }}
+        </p>
+        <pre><code [highlight]="code2" [languages]="['typescript']"[lineNumbers]="true"></code></pre>
+        <p class="m-t-30 m-b-30">
+          {{ blogDetail?.blogDetail4 }}
+        </p>
+        <p class="m-t-30 m-b-30">
+          {{ blogDetail?.blogDetail5 }}
+        </p>
 
+        <pre><code [highlight]="code3" [languages]="['typescript']"[lineNumbers]="true"></code></pre>
+        <p class="m-t-30 m-b-30">
+          {{ blogDetail?.blogDetail6 }}
+        </p>
+        <pre><code [highlight]="code4" [languages]="['typescript']"[lineNumbers]="true"></code></pre>
+
+        <p class="m-t-30 m-b-30">
+          {{ blogDetail?.blogDetail7 }}
+        </p>
+        <br>
+        <p class="m-t-30 m-b-30">
+          {{ blogDetail?.blogDetail8 }}
+        </p>
+
+        <pre><code [highlight]="code5" [languages]="['typescript']"[lineNumbers]="true"></code></pre>
 
         <div class="m-t-30">
           <button type="button" class="btn bg-facebook btn-rounded mr-3">
-            <i class="fa fa-facebook"></i> Facebook
+            <a style="color: white;" href="www.linkedin.com"><i style="color: white;" class="fa fa-linkedin"></i> Linkedin
+            </a>
+
           </button>
           <button type="button" class="btn bg-twitter btn-rounded">
-            <i class="fa fa-twitter"></i> Twitter
+            <a style="color: white;" href="www.twitter.com"><i style="color: white;" class="fa fa-twitter"></i> Twitter
+            </a>
+
           </button>
         </div>
       </div>
@@ -54,6 +87,13 @@
   </div>
   <!-- Row  -->
 
+
+
 </div>
+
+<!-- <body>
+
+</body> -->
+
 
 
