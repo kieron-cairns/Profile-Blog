@@ -14,17 +14,12 @@ import { AppComponent } from './app.component';
 import { NgParticlesModule } from 'ng-particles';
 import { BlogComponent } from './apps/blog/blog.component';
 import { BlogDetailComponent } from './apps/blog/blog-detail/blog-detail.component';
-
-
-
-
-
-
-
+import { SqlBlogComponentComponent } from './sql-blog-component/sql-blog-component.component';
 @NgModule({
   declarations: [
     AppComponent,
-    BlogDetailComponent
+    BlogDetailComponent,
+    SqlBlogComponentComponent
   ],
   imports: [
     BrowserModule,

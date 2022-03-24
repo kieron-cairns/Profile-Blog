@@ -81,6 +81,46 @@ margin: auto;">
       </div>
     </div>
   </div>
+
+<div class="row m-t-40 justify-content-center">
+  <!-- Column -->
+  <div
+    class="col-md-8 no-trans border-bottom mb-4"
+    *ngFor="let bl of service.Blogs"
+  >
+    <div class="card" data-aos="flip-left" data-aos-duration="1200">
+      <div class="row">
+        <div class="col-md-2 no-trans">
+          <span class="text-dark font-medium">Test Date</span>
+          <h6 class="card-subtitle font-12 mt-1">By Kieron Cairns</h6>
+        </div>
+        <div class="col-md-7 no-trans">
+          <a routerLink="SqlBlog">
+          <h5 class="font-medium cursor-pointer" >
+            Test Heading
+          </h5>
+        </a>
+          <p class="m-t-20">
+            Test subHeading
+          </p>
+        </div>
+        <div class="col-md-3 no-trans">
+          <a
+            class="linking font-medium text-themecolor m-t-10 cursor-pointer"
+          >
+          <a routerLink="SqlBlog">
+            <span>Show Detail</span>
+            <i class="ti-arrow-right"></i>
+            </a>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+</div>
+
+
+
 
 
