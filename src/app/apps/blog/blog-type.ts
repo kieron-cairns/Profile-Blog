@@ -12,4 +12,5 @@ export class Blog {
   blogDetail6: string = '';
   blogDetail7: string = '';
   blogDetail8: string = '';
+  blogDetail9: string = '';
 }

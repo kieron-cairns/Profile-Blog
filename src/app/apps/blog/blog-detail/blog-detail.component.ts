@@ -31,7 +31,7 @@ export class BlogDetailComponent implements OnInit {
       {
           if (id == null) throw new ArgumentNullException(nameof(id));
 
-          return await this.stockRepository.GetStockItemById(id);
+          return await this.stockRepository.GetStockItemById(id).ConfigureAwait(false);
       }
   }`;
 
@@ -88,7 +88,7 @@ export class BlogDetailComponent implements OnInit {
 
       async Task<List<StockItem>> DoWork()
       {
-          return await this.stockRepository.GetStockItemById(id);
+          return await this.stockRepository.GetStockItemById(id).ConfigureAwait(false);
       }
 
       return DoWork();
