@@ -612,7 +612,7 @@ BlogComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_1__["
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](6, "Kieron's Blog");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](7, "h5", 6);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](8, " Develoepr blog posts about my encounters in the software engineering world, mostly about but not stirctly C# and .Net Core ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](8, " Developer blog posts about my encounters in the software engineering world, mostly about but not stirctly C# and .Net Core ");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](9, "a", 7);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](10, "About Kieron");
@@ -648,7 +648,7 @@ BlogComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_1__["
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngForOf", ctx.service.Blogs);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](2);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngForOf", ctx.service.Blogs);
-    } }, directives: [ng_particles__WEBPACK_IMPORTED_MODULE_4__.NgParticlesComponent, _angular_common__WEBPACK_IMPORTED_MODULE_5__.NgForOf, _angular_router__WEBPACK_IMPORTED_MODULE_2__.RouterLinkWithHref], styles: ["#tsparticles[_ngcontent-%COMP%] {\n  height: 500px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImJsb2cuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7R0FFRzs7QUFFSDtFQUNFLGFBQWE7QUFDZiIsImZpbGUiOiJibG9nLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIvKiBkaXZ7XG4gIGJhY2tncm91bmQ6ICNGRkZGRkYgIWltcG9ydGFudDtcbn0gKi9cblxuI3RzcGFydGljbGVzIHtcbiAgaGVpZ2h0OiA1MDBweDtcbn1cbiJdfQ== */"] });
+    } }, directives: [ng_particles__WEBPACK_IMPORTED_MODULE_4__.NgParticlesComponent, _angular_common__WEBPACK_IMPORTED_MODULE_5__.NgForOf, _angular_router__WEBPACK_IMPORTED_MODULE_2__.RouterLinkWithHref], styles: ["#tsparticles[_ngcontent-%COMP%] {\n  height: 500px;\n}\n\n@media (max-width: 577px) {\n  .card[_ngcontent-%COMP%] {\n    margin-left: 10%;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImJsb2cuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7R0FFRzs7QUFFSDtFQUNFLGFBQWE7QUFDZjs7QUFFQTtFQUNFO0lBQ0UsZ0JBQWdCO0VBQ2xCO0FBQ0YiLCJmaWxlIjoiYmxvZy5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLyogZGl2e1xuICBiYWNrZ3JvdW5kOiAjRkZGRkZGICFpbXBvcnRhbnQ7XG59ICovXG5cbiN0c3BhcnRpY2xlcyB7XG4gIGhlaWdodDogNTAwcHg7XG59XG5cbkBtZWRpYSAobWF4LXdpZHRoOiA1NzdweCkge1xuICAuY2FyZCB7XG4gICAgbWFyZ2luLWxlZnQ6IDEwJTtcbiAgfVxufVxuXG4iXX0= */"] });
 
 
 /***/ }),
