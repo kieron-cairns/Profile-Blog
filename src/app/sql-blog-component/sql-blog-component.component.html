@@ -1,1 +1,426 @@
-<p>sql-blog-component works!</p>
+
+<div
+
+>
+  <div class="container">
+    <!-- Row  -->
+    <div class="row justify-content-center">
+      <!-- Column -->
+      <div class="col-lg-9 col-md-6 align-self-center text-center">
+        <h1 class="title">Kieron's Development Blog</h1>
+      </div>
+      <!-- Column -->
+    </div>
+  </div>
+</div>
+
+<!-- Row  -->
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8 no-trans">
+      <div class="mini-spacer">
+        <!-- <img [src]="blogDetail?.image" alt="wrapkit" class="img-fluid" /> -->
+        <img src="./assets/images/blog/SQLBlogImage.jpg" alt="wrapkit" class="img-fluid" />
+
+
+        <div
+          class="d-flex align-items-center text-uppercase m-t-40 font-13 font-medium"
+        >
+          <a routerLink="" class="link">Kieron Cairns</a>
+          <div class="ml-auto">
+            <!-- <a routerLink="" class="link">{{ blogDetail?.blogDate }} </a> -->
+            Mar 25, 2022
+          </div>
+        </div>
+        <h2 class="title font-light">
+          <!-- {{ blogDetail?.heading }} -->
+          SQL Joins Explained
+        </h2>
+        <p style="font-size: 17.5px;" class="m-t-30 m-b-30">
+          <!-- {{ blogDetail?.subHeading }} -->
+          Today in a job interview, a question I was asked was "How does an SQL  left join differ from a standard join?". Unfortunately at the time, I was unable to answer this on the spot, and me being unable to answer this simple question has bugged me. So this blog post is going to be dedicated to explaining SQL joins and how they differ, with some examples. This will help reinforce my knowledge whilst also proving some good blog content, and also, I hope the interviewers see this to see I have rectified my mistake 🧐  . So without further ado, let's get started
+        </p>
+        <h4>Fundamentals</h4>
+        <p style="font-size: 17.5px;" class="m-t-30 m-b-30">
+          Consider the following statement:
+        </p>
+
+        <pre><code class="m-t-30 m-b-30" [highlight]="code1" [languages]="['typescript']"[lineNumbers]="true"></code></pre>
+
+
+        <p style="font-size: 17.5px;" class="m-t-30 m-b-30" class="m-t-30 m-b-30">
+          By default, the table StockItems is the left table. And the table ShelfLocations is the right table. This will make more sense once we get into the specifics of each join.
+        </p>
+        <br>
+        <p style="font-size: 17.5px;" class="m-t-30 m-b-30" class="m-t-30 m-b-30">
+          We will be using both these mentioned  tables throughout this blog:
+        </p>
+        <h5>StockItems</h5>
+
+        <table style="border: 1px solid;">
+          <thead>
+          <tr>
+            <th style="border: 1px solid; padding-left: 5em; padding-right: 5em;">Id</th>
+            <th style="border: 1px solid; padding-left: 5em; padding-right: 5em;">ItemName</th>
+            <th style="border: 1px solid; padding-left: 5em; padding-right: 5em;">ShelfLocation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="border: 1px solid; padding-left: 5em; padding-right: 5em;">1</td>
+            <td style="border: 1px solid; padding-left: 5em;">Dairy Milk Bar</td>
+            <td style="border: 1px solid; padding-left: 5em;">Isle1_Left</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid; padding-left: 5em; padding-right: 5em;">2</td>
+            <td style="border: 1px solid; padding-left: 5em;">Galaxy Bar</td>
+            <td style="border: 1px solid; padding-left: 5em;">Isle1_Left</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid; padding-left: 5em; padding-right: 5em;">3</td>
+            <td style="border: 1px solid; padding-left: 5em;">Aero Bar</td>
+            <td style="border: 1px solid; padding-left: 5em;">Null</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid; padding-left: 5em; padding-right: 5em;">4</td>
+            <td style="border: 1px solid; padding-left: 5em;">Coca Cola</td>
+            <td style="border: 1px solid; padding-left: 5em;">Isle1_Right</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid; padding-left: 5em; padding-right: 5em;">5</td>
+            <td style="border: 1px solid; padding-left: 5em;">Walkers Cheese & Onion</td>
+            <td style="border: 1px solid; padding-left: 5em;">Isle2_Left</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid; padding-left: 5em; padding-right: 5em;">6</td>
+            <td style="border: 1px solid; padding-left: 5em;">Tango</td>
+            <td style="border: 1px solid; padding-left: 5em;">Null</td>
+          </tr>
+        </tbody>
+        </table>
+
+        <br>
+        <h5>ShelfLocations</h5>
+
+        <table style="border: 1px solid;">
+          <thead>
+          <tr>
+            <th style="border: 1px solid; padding-left: 5em; padding-right: 5em;">Category</th>
+            <th style="border: 1px solid; padding-left: 5em; padding-right: 5em;">ShelfLocation</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td style="border: 1px solid; padding-left: 5em;">Sweets</td>
+            <td style="border: 1px solid; padding-left: 5em;">Isle1_Left</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid; padding-left: 5em;">Drinks</td>
+            <td style="border: 1px solid; padding-left: 5em;">Isle1_Right</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid; padding-left: 5em;">Crisps</td>
+            <td style="border: 1px solid; padding-left: 5em;">Isle2_Left</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid; padding-left: 5em;">Sandwhiches</td>
+            <td style="border: 1px solid; padding-left: 5em;">Isle2_Right</td>
+          </tr>
+        </tbody>
+        </table>
+
+        <br>
+
+        <h4>Left Join</h4>
+
+        <p style="font-size: 17.5px;" class="m-t-30 m-b-30" class="m-t-30 m-b-30">
+          A left join will return all rows from the left table. Any matching results in the right table, these will appear on the right of the resulted join. Any unmatched results will appear as null.
+        </p>
+
+        <table style="border: 1px solid; size: 10%;">
+          <thead>
+          <tr>
+            <th style="border: 1px solid; width: 10%;">Id</th>
+            <th style="border: 1px solid; padding-left: 5em; padding-right: 5em;">ItemName</th>
+            <th style="border: 1px solid; padding-left: 5em; padding-right: 5em;">ShelfLocation</th>
+            <th style="border: 1px solid; padding-left: 5em; padding-right: 5em;">Category</th>
+            <th style="border: 1px solid; padding-left: 5em; padding-right: 5em;">ShelfLocation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="border: 1px solid; width: 10%;">1</td>
+            <td style="border: 1px solid; padding-left: 5em;">Dairy Milk Bar</td>
+            <td style="border: 1px solid; padding-left: 5em;">Isle1_Left</td>
+            <td style="border: 1px solid; padding-left: 5em;">Sweets</td>
+            <td style="border: 1px solid; padding-left: 5em;">Isle1_Left</td>
+
+          </tr>
+          <tr>
+            <td style="border: 1px solid; width: 10%;">2</td>
+            <td style="border: 1px solid; padding-left: 5em;">Galaxy Bar</td>
+            <td style="border: 1px solid; padding-left: 5em;">Isle1_Left</td>
+            <td style="border: 1px solid; padding-left: 5em;">Sweets</td>
+            <td style="border: 1px solid; padding-left: 5em;">Isle1_Left</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid; width: 10%;">3</td>
+            <td style="border: 1px solid; padding-left: 5em;">Aero Bar</td>
+            <td style="border: 1px solid; padding-left: 5em;">Null</td>
+            <td style="border: 1px solid; padding-left: 5em;">Null</td>
+            <td style="border: 1px solid; padding-left: 5em;">Null</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid; width: 10%;">4</td>
+            <td style="border: 1px solid; padding-left: 5em;">Coca Cola</td>
+            <td style="border: 1px solid; padding-left: 5em;">Isle1_Right</td>
+            <td style="border: 1px solid; padding-left: 5em;">Drinks</td>
+            <td style="border: 1px solid; padding-left: 5em;">Isle1_Right</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid; width: 10%;">5</td>
+            <td style="border: 1px solid; padding-left: 5em;">Walkers Cheese & Onion</td>
+            <td style="border: 1px solid; padding-left: 5em;">Isle2_Left</td>
+            <td style="border: 1px solid; padding-left: 5em;">Crisps</td>
+            <td style="border: 1px solid; padding-left: 5em;">Isle2_Left</td>
+
+          </tr>
+          <tr>
+            <td  style="border: 1px solid; width: 10%;">6</td>
+            <td style="border: 1px solid; padding-left: 5em;">Tango</td>
+            <td style="border: 1px solid; padding-left: 5em;">Null</td>
+            <td style="border: 1px solid; padding-left: 5em;">Null</td>
+            <td style="border: 1px solid; padding-left: 5em;">Null</td>
+
+          </tr>
+        </tbody>
+        </table>
+<br>
+        <h4>Right Join</h4>
+
+        <p style="font-size: 17.5px;" class="m-t-30 m-b-30" class="m-t-30 m-b-30">
+          A right join will return the opposite result of that of the left join.
+All rows will be returned from the right table and appear on the right. Any mathced rows in the left table will appear on the left of the join. Any unmatched results will appear as null.
+        </p>
+
+        <table style="border: 1px solid;">
+          <thead>
+          <tr>
+            <th style="border: 1px solid; width: 10%;">Id</th>
+            <th style="border: 1px solid; padding-left: 5em; padding-right: 5em;">ItemName</th>
+            <th style="border: 1px solid; padding-left: 5em; padding-right: 5em;">ShelfLocation</th>
+            <th style="border: 1px solid; padding-left: 5em; padding-right: 5em;">Category</th>
+            <th style="border: 1px solid; padding-left: 5em; padding-right: 5em;">ShelfLocation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="border: 1px solid; width: 10%;">1</td>
+            <td style="border: 1px solid; padding-left: 5em;">Dairy Milk Bar</td>
+            <td style="border: 1px solid; padding-left: 5em;">Isle1_Left</td>
+            <td style="border: 1px solid; padding-left: 5em;">Sweets</td>
+            <td style="border: 1px solid; padding-left: 5em;">Isle1_Left</td>
+
+          </tr>
+          <tr>
+            <td style="border: 1px solid; width: 10%;">2</td>
+            <td style="border: 1px solid; padding-left: 5em;">Galaxy Bar</td>
+            <td style="border: 1px solid; padding-left: 5em;">Isle1_Left</td>
+            <td style="border: 1px solid; padding-left: 5em;">Sweets</td>
+            <td style="border: 1px solid; padding-left: 5em;">Isle1_Left</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid; width: 10%;">4</td>
+            <td style="border: 1px solid; padding-left: 5em;">Coca Cola</td>
+            <td style="border: 1px solid; padding-left: 5em;">Isle1_Right</td>
+            <td style="border: 1px solid; padding-left: 5em;">Drinks</td>
+            <td style="border: 1px solid; padding-left: 5em;">Isle1_Right</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid; width: 10%;">5</td>
+            <td style="border: 1px solid; padding-left: 5em;">Walkers Cheese & Onion</td>
+            <td style="border: 1px solid; padding-left: 5em;">Isle2_Left</td>
+            <td style="border: 1px solid; padding-left: 5em;">Crisps</td>
+            <td style="border: 1px solid; padding-left: 5em;">Isle2_Left</td>
+
+          </tr>
+          <tr>
+            <td style="border: 1px solid; width: 10%;">Null</td>
+            <td style="border: 1px solid; padding-left: 5em;">Null</td>
+            <td style="border: 1px solid; padding-left: 5em;">Null</td>
+            <td style="border: 1px solid; padding-left: 5em;">Sandwiches</td>
+            <td style="border: 1px solid; padding-left: 5em;">Isle2_Right</td>
+
+          </tr>
+        </tbody>
+        </table>
+        <br>
+
+        <h4>Inner Join</h4>
+        <br>
+        <p>
+          A inner join is the most simple join in my opinion. A inner join will only return results where rows are matched in both tables. The first table that is in the query (StockItems) will appear on the left, and the second table in the query (ShelfLocations) will be on the right. Null results will not be displayed.
+
+        </p>
+        <br>
+        <div class="hscroll">
+        <table>
+          <thead>
+          <tr>
+            <th style="border: 1px solid; width: 10%;">Id</th>
+            <th style="border: 1px solid; padding-left: 5em; padding-right: 5em;">ItemName</th>
+            <th style="border: 1px solid; padding-left: 5em; padding-right: 5em;">ShelfLocation</th>
+            <th style="border: 1px solid; padding-left: 5em; padding-right: 5em;">Category</th>
+            <th style="border: 1px solid; padding-left: 5em; padding-right: 5em;">ShelfLocation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Id" style="border: 1px solid">1</td>
+            <td data-label="ItemName" style="border: 1px solid;">Dairy Milk Bar</td>
+            <td style="border: 1px solid; padding-left: 5em;">Isle1_Left</td>
+            <td style="border: 1px solid; padding-left: 5em;">Sweets</td>
+            <td style="border: 1px solid; padding-left: 5em;">Isle1_Left</td>
+
+          </tr>
+          <tr>
+            <td style="border: 1px solid; width: 10%;">2</td>
+            <td style="border: 1px solid; padding-left: 5em;">Galaxy Bar</td>
+            <td style="border: 1px solid; padding-left: 5em;">Isle1_Left</td>
+            <td style="border: 1px solid; padding-left: 5em;">Sweets</td>
+            <td style="border: 1px solid; padding-left: 5em;">Isle1_Left</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid; width: 10%;">4</td>
+            <td style="border: 1px solid; padding-left: 5em;">Coca Cola</td>
+            <td style="border: 1px solid; padding-left: 5em;">Isle1_Right</td>
+            <td style="border: 1px solid; padding-left: 5em;">Drinks</td>
+            <td style="border: 1px solid; padding-left: 5em;">Isle1_Right</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid; width: 10%;">5</td>
+            <td style="border: 1px solid; padding-left: 5em;">Walkers Cheese & Onion</td>
+            <td style="border: 1px solid; padding-left: 5em;">Isle2_Left</td>
+            <td style="border: 1px solid; padding-left: 5em;">Crisps</td>
+            <td style="border: 1px solid; padding-left: 5em;">Isle2_Left</td>
+          </tr>
+        </tbody>
+        </table>
+      </div>
+        <br>
+        <h4>Full Outer Join</h4>
+
+        <p  style="font-size: 17.5px;" class="m-t-30 m-b-30" class="m-t-30 m-b-30">
+          Lastly, full join is a combination of the left and right join. it will return all rows that are connected and unconnected, displaying null results.
+        </p>
+
+        <br>
+        <table style="border: 1px solid;">
+          <thead>
+          <tr>
+            <th style="border: 1px solid; width: 10%;">Id</th>
+            <th style="border: 1px solid; padding-left: 5em; padding-right: 5em;">ItemName</th>
+            <th style="border: 1px solid; padding-left: 5em; padding-right: 5em;">ShelfLocation</th>
+            <th style="border: 1px solid; padding-left: 5em; padding-right: 5em;">Category</th>
+            <th style="border: 1px solid; padding-left: 5em; padding-right: 5em;">ShelfLocation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="border: 1px solid; width: 10%;">1</td>
+            <td style="border: 1px solid; padding-left: 5em;">Dairy Milk Bar</td>
+            <td style="border: 1px solid; padding-left: 5em;">Isle1_Left</td>
+            <td style="border: 1px solid; padding-left: 5em;">Sweets</td>
+            <td style="border: 1px solid; padding-left: 5em;">Isle1_Left</td>
+
+          </tr>
+          <tr>
+            <td style="border: 1px solid; width: 10%;">2</td>
+            <td style="border: 1px solid; padding-left: 5em;">Galaxy Bar</td>
+            <td style="border: 1px solid; padding-left: 5em;">Isle1_Left</td>
+            <td style="border: 1px solid; padding-left: 5em;">Sweets</td>
+            <td style="border: 1px solid; padding-left: 5em;">Isle1_Left</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid; width: 10%;">3</td>
+            <td style="border: 1px solid; padding-left: 5em;">Aero Bar</td>
+            <td style="border: 1px solid; padding-left: 5em;">Null</td>
+            <td style="border: 1px solid; padding-left: 5em;">Null</td>
+            <td style="border: 1px solid; padding-left: 5em;">Null</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid; width: 10%;">4</td>
+            <td style="border: 1px solid; padding-left: 5em;">Coca Cola</td>
+            <td style="border: 1px solid; padding-left: 5em;">Isle1_Right</td>
+            <td style="border: 1px solid; padding-left: 5em;">Drinks</td>
+            <td style="border: 1px solid; padding-left: 5em;">Isle1_Right</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid; width: 10%;">5</td>
+            <td style="border: 1px solid; padding-left: 5em;">Walkers Cheese & Onion</td>
+            <td style="border: 1px solid; padding-left: 5em;">Isle2_Left</td>
+            <td style="border: 1px solid; padding-left: 5em;">Crisps</td>
+            <td style="border: 1px solid; padding-left: 5em;">Isle2_Left</td>
+
+          </tr>
+          <tr>
+            <td style="border: 1px solid; width: 10%;">6</td>
+            <td style="border: 1px solid; padding-left: 5em;">Tango</td>
+            <td style="border: 1px solid; padding-left: 5em;">Null</td>
+            <td style="border: 1px solid; padding-left: 5em;">Null</td>
+            <td style="border: 1px solid; padding-left: 5em;">Null</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid; width: 10%;">Null</td>
+            <td style="border: 1px solid; padding-left: 5em;">Null</td>
+            <td style="border: 1px solid; padding-left: 5em;">Null</td>
+            <td style="border: 1px solid; padding-left: 5em;">Sandwiches</td>
+            <td style="border: 1px solid; padding-left: 5em;">Isle2_Left</td>
+          </tr>
+        </tbody>
+        </table>
+
+        <p style="font-size: 17.5px;" class="m-t-30 m-b-30" class="m-t-30 m-b-30">
+          <!-- {{ blogDetail?.blogDetail6 }} -->
+        </p>
+        <br>
+        <p style="font-size: 17.5px;" class="m-t-30 m-b-30" class="m-t-30 m-b-30">
+          <!-- {{ blogDetail?.blogDetail7 }} -->
+        </p>
+        <br>
+        <p style="font-size: 17.5px;" class="m-t-30 m-b-30" class="m-t-30 m-b-30">
+          <!-- {{ blogDetail?.blogDetail8 }} -->
+        </p>
+
+
+        <p style="font-size: 17.5px;" class="m-t-30 m-b-30" class="m-t-30 m-b-30">
+          <!-- {{ blogDetail?.blogDetail9 }} -->
+        </p>
+        <div class="m-t-30">
+          <!-- <button type="button" class="btn bg-facebook btn-rounded mr-3">
+            <a style="color: white;" href="www.linkedin.com"><i style="color: white;" class="fa fa-linkedin"></i> Linkedin
+            </a>
+
+          </button>
+          <button type="button" class="btn bg-twitter btn-rounded">
+            <a style="color: white;" href="www.twitter.com"><i style="color: white;" class="fa fa-twitter"></i> Twitter
+            </a>
+
+          </button> -->
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- Row  -->
+
+
+
+</div>
+
+<!-- <body>
+
+</body> -->
+
+
+

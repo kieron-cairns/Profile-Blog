@@ -5,3 +5,10 @@
 #tsparticles {
   height: 500px;
 }
+
+@media (max-width: 577px) {
+  .card {
+    margin-left: 10%;
+  }
+}
+
