@@ -1,4 +1,12 @@
-@media screen and (max-width: 600px) {
+@media screen and (min-width: 1475px){
+  tr:nth-child(even){background-color: #f2f2f2}
+
+td {
+  font-weight: 450;
+}
+}
+
+@media screen and (max-width: 1475px) {
   table thead {
     border: none;
     clip: rect(0 0 0 0);
@@ -10,19 +18,31 @@
     width: 1px;
   }
 
-  table tr {
-    border-bottom: 3px solid #ddd;
-    display: block;
+  table {
+    width: 100%;
   }
 
+  table tr {
+    /* border-bottom: 3px solid #ddd; */
+    display: block;
+    /* border-left: 0px solid #ffff; */
+    padding-bottom: 10%;
+  }
+
+  td:nth-child(even){background-color: #f2f2f2}
+
+
   table td {
-    border-bottom: 1px solid #ddd;
+    border-bottom: 3px solid #ddd;
     display: block;
     text-align: right;
+    font-weight: bold;
+
   }
 
   table td::before {
     content: attr(data-label);
     float: left;
+
   }
 }
